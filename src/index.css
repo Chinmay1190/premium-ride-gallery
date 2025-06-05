@@ -56,16 +56,44 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    background: radial-gradient(ellipse at center, 
+      rgba(212, 175, 55, 0.05) 0%, 
+      rgba(0, 0, 0, 0) 50%
+    );
   }
 }
 
 @layer components {
   .luxury-card {
-    @apply bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500;
+    @apply bg-gradient-to-br from-white via-white to-gray-50/80 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 
+    border border-gray-200/50 dark:border-gray-700/50 rounded-2xl shadow-xl hover:shadow-2xl 
+    transition-all duration-700 backdrop-blur-sm;
+    background-image: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.9) 0%, 
+      rgba(255, 255, 255, 0.7) 50%, 
+      rgba(212, 175, 55, 0.1) 100%
+    );
+  }
+  
+  .dark .luxury-card {
+    background-image: linear-gradient(135deg, 
+      rgba(17, 17, 17, 0.95) 0%, 
+      rgba(31, 31, 31, 0.9) 50%, 
+      rgba(212, 175, 55, 0.15) 100%
+    );
   }
   
   .luxury-button {
-    @apply bg-luxury-gradient text-black font-semibold py-3 px-6 rounded-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply bg-luxury-gradient text-black font-bold py-4 px-8 rounded-xl 
+    hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl hover:shadow-2xl
+    relative overflow-hidden;
+  }
+  
+  .luxury-button::before {
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    content: '';
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
   }
   
   .shimmer-effect {
@@ -73,16 +101,33 @@
   }
   
   .shimmer-effect::before {
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/30 dark:via-white/10 to-transparent;
     content: '';
-    animation: shimmer 2s infinite;
+    animation: shimmer 3s infinite;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-lg bg-white/20 dark:bg-black/20 border border-white/30 dark:border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-luxury-gold via-yellow-400 to-luxury-gold bg-clip-text text-transparent;
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-glow {
+    @apply shadow-lg shadow-luxury-gold/50;
+    animation: pulse-glow 2s ease-in-out infinite alternate;
   }
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -90,27 +135,187 @@
   }
 }
 
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
+  }
+}
+
 .fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-scale {
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .scroll-smooth {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Enhanced scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-800;
+  @apply bg-gray-100 dark:bg-gray-800 rounded-lg;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-luxury-gold rounded-full;
+  @apply bg-luxury-gold rounded-lg hover:bg-luxury-gold-dark;
+  background: linear-gradient(45deg, #D4AF37, #FFD700);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-luxury-gold-dark;
+  background: linear-gradient(45deg, #B8941F, #D4AF37);
+}
+
+/* Loading animation */
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: '';
+  }
+  40% {
+    content: '.';
+  }
+  60% {
+    content: '..';
+  }
+  80%, 100% {
+    content: '...';
+  }
+}
+
+/* Parallax effect */
+.parallax {
+  transform-style: preserve-3d;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateZ(-1px) scale(2);
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-luxury-gold/25;
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply relative overflow-hidden bg-luxury-gradient text-black font-semibold px-6 py-3 rounded-lg
+  transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95;
+}
+
+.btn-primary::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent
+  translate-x-[-100%] transition-transform duration-500;
+}
+
+.btn-primary:hover::before {
+  @apply translate-x-[100%];
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-2xl;
+}
+
+/* Text animations */
+.text-reveal {
+  background: linear-gradient(90deg, transparent 0%, currentColor 50%, transparent 100%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: text-reveal 2s ease-in-out infinite;
+}
+
+@keyframes text-reveal {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }

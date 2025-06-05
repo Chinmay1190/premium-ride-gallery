@@ -12,6 +12,7 @@ import { CartProvider } from "./contexts/CartContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Cars from "./pages/Cars";
+import Brands from "./pages/Brands";
 import Brand from "./pages/Brand";
 import CarDetails from "./pages/CarDetails";
 import Cart from "./pages/Cart";
@@ -35,6 +36,7 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/cars" element={<Cars />} />
+                <Route path="/brands" element={<Brands />} />
                 <Route path="/brands/:brandId" element={<Brand />} />
                 <Route path="/car/:carId" element={<CarDetails />} />
                 <Route path="/cart" element={<Cart />} />

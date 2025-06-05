@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Truck, CreditCard, Star, Award, Users, Globe, Zap, Crown } from 'lucide-react';
@@ -12,12 +11,21 @@ const Index = () => {
 
   return (
     <div className="min-h-screen overflow-hidden">
-      {/* Hero Section */}
+      {/* Hero Section with Luxury Car Background */}
       <section className="relative h-screen flex items-center justify-center">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-hero-gradient">
+        {/* Enhanced Background with Multiple Car Images */}
+        <div className="absolute inset-0">
+          {/* Primary background with luxury car */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-40"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1920&h=1080&fit=crop&crop=center')`
+            }}
+          ></div>
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80"></div>
+          {/* Luxury gold accent gradient */}
           <div className="absolute inset-0 bg-luxury-gradient opacity-10 animate-pulse"></div>
-          <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center opacity-20"></div>
         </div>
         
         {/* Floating Elements */}
@@ -84,9 +92,37 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Luxury Car Gallery Section */}
+      {/* Enhanced Luxury Car Gallery Section with 4 Background Cars */}
       <section className="py-24 bg-gradient-to-br from-luxury-dark-gray to-black relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-luxury-gold/10 via-transparent to-luxury-gold/10"></div>
+        {/* Background Car Images */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute top-0 left-0 w-1/2 h-1/2 bg-cover bg-center opacity-15"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&h=600&fit=crop&crop=center')`
+            }}
+          ></div>
+          <div 
+            className="absolute top-0 right-0 w-1/2 h-1/2 bg-cover bg-center opacity-15"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center')`
+            }}
+          ></div>
+          <div 
+            className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-cover bg-center opacity-15"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&crop=center')`
+            }}
+          ></div>
+          <div 
+            className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-cover bg-center opacity-15"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=600&fit=crop&crop=center')`
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-luxury-gold/10 via-transparent to-luxury-gold/10"></div>
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-20 fade-in-up">
             <Badge className="bg-luxury-gold/20 text-luxury-gold border-luxury-gold mb-6 text-lg px-6 py-3">

@@ -1,12 +1,24 @@
 
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, SlidersHorizontal, Grid, List } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Search, Filter, SlidersHorizontal, Grid, List, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import CarCard from '@/components/CarCard';
 import { getAllCars, carBrands, Car } from '@/data/carsData';
+import { useCart } from '@/contexts/CartContext';
+import { useToast } from '@/hooks/use-toast';
+
+// Utility function to format price
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 0,
+  }).format(price);
+};
 
 const Cars = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -93,7 +105,7 @@ const Cars = () => {
             </Badge>
             <div className="flex items-center space-x-2">
               <Button
-                variant={viewMode === 'grid' ? 'default' : '1'}
+                variant={viewMode === 'grid' ? 'default' : 'outline'}
                 size="icon"
                 className={viewMode === 'grid' ? 'bg-luxury-gold text-black' : ''}
                 onClick={() => setViewMode('grid')}

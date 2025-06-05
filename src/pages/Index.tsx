@@ -84,6 +84,113 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Luxury Car Gallery Section */}
+      <section className="py-24 bg-gradient-to-br from-luxury-dark-gray to-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-luxury-gold/10 via-transparent to-luxury-gold/10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-20 fade-in-up">
+            <Badge className="bg-luxury-gold/20 text-luxury-gold border-luxury-gold mb-6 text-lg px-6 py-3">
+              <Crown className="w-5 h-5 mr-2" />
+              Gallery of Excellence
+            </Badge>
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 font-luxury text-white">
+              Masterpieces in Motion
+            </h2>
+            <p className="text-2xl text-gray-300 max-w-3xl mx-auto">
+              Witness the extraordinary beauty and engineering excellence of our luxury automobile collection.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {/* Car Image 1 - Lamborghini */}
+            <div className="luxury-card p-2 hover-lift hover-glow group transition-all duration-700" style={{ animationDelay: '0.1s' }}>
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop&crop=center"
+                  alt="Luxury Lamborghini"
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2 gradient-text">Lamborghini Huracán</h3>
+                  <p className="text-gray-300">Pure Italian Performance</p>
+                </div>
+                <div className="absolute top-6 right-6">
+                  <Badge className="bg-luxury-gold/90 text-black">Premium</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Car Image 2 - Ferrari */}
+            <div className="luxury-card p-2 hover-lift hover-glow group transition-all duration-700" style={{ animationDelay: '0.2s' }}>
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=600&fit=crop&crop=center"
+                  alt="Luxury Ferrari"
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2 gradient-text">Ferrari 488 GTB</h3>
+                  <p className="text-gray-300">Racing Heritage</p>
+                </div>
+                <div className="absolute top-6 right-6">
+                  <Badge className="bg-luxury-gold/90 text-black">Exclusive</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Car Image 3 - Porsche */}
+            <div className="luxury-card p-2 hover-lift hover-glow group transition-all duration-700" style={{ animationDelay: '0.3s' }}>
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=600&fit=crop&crop=center"
+                  alt="Luxury Porsche"
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2 gradient-text">Porsche 911 Turbo</h3>
+                  <p className="text-gray-300">Precision Engineering</p>
+                </div>
+                <div className="absolute top-6 right-6">
+                  <Badge className="bg-luxury-gold/90 text-black">Sport</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Car Image 4 - McLaren */}
+            <div className="luxury-card p-2 hover-lift hover-glow group transition-all duration-700" style={{ animationDelay: '0.4s' }}>
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&crop=center"
+                  alt="Luxury McLaren"
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2 gradient-text">McLaren 720S</h3>
+                  <p className="text-gray-300">British Supercar</p>
+                </div>
+                <div className="absolute top-6 right-6">
+                  <Badge className="bg-luxury-gold/90 text-black">Limited</Badge>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Link to="/cars">
+              <Button size="lg" className="luxury-button text-xl px-12 py-6 group">
+                <Star className="mr-3 w-6 h-6" />
+                Discover More Masterpieces
+                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Cars Section */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-luxury-gold/5 to-transparent"></div>
